@@ -6,18 +6,18 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 contract Land is ERC721 {
 
     uint public cost = 1 ether;
-    uint public maxSupply = 5;
+    uint public maxSupply = 10;
     uint public totalSupply = 0;
 
     struct Building {
         string name;
         address owner;
+        uint256 width;
+        uint256 height;
+        uint256 depth;
         int256 posX;
         int256 posY;
         int256 posZ;
-        uint256 sizeX;
-        uint256 sizeY;
-        uint256 sizeZ;
     }
 
     Building[] public buildings;
@@ -25,19 +25,34 @@ contract Land is ERC721 {
     constructor(string memory _name, string memory _symbol, uint256 _cost ) ERC721 (_name, _symbol) {
         cost = _cost;
         buildings.push(
-            Building('Center Mall', address(0x0), 0, 0, 0, 10, 10, 10)
+            Building('Bank', address(0x0), 2, 6, 4, 0, 0, 0)
         );
          buildings.push(
-            Building('Bank', address(0x0), 0, 10, 0, 10, 5, 3)
+            Building('University', address(0x0), 4, 10, 8, 10, -18, 0)
         );
          buildings.push(
-            Building('University', address(0x0), 0, -10, 0, 10, 5, 3)
+            Building('Central Hospital', address(0x0), 2, 12, 4, 10, 16, 0)
         );
          buildings.push(
-            Building('cleve park', address(0x0), 10, 0, 0, 5, 25, 5)
+            Building('fun park', address(0x0), 6, 4, 4, 20, 2, 0)
         );
-         buildings.push(
-            Building('fun park', address(0x0), -10, 0, 0, 5, 25, 5)
+        buildings.push(
+            Building('Art Gallery', address(0x0), 4, 6, 2, -18, -12, 0)
+        );
+        buildings.push(
+            Building('Beach City', address(0x0), 10, 6, 6, -4, -9, 0)
+        );
+        buildings.push(
+            Building('Food Heaven', address(0x0), 4, 10, 4, -20, 15, 0)
+        );
+        buildings.push(
+            Building('Industrial Refinary', address(0x0), 4, 12, 2, -19, 0, 0)
+        );
+        buildings.push(
+            Building('State Musuem', address(0x0), 8, 4, 8, 9, 3, 0)
+        );
+        buildings.push(
+            Building('Center Mall', address(0x0), 6, 6, 6, -4, 11, 0)
         );
     }
 

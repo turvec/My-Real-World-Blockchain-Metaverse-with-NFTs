@@ -1,26 +1,26 @@
 import Identicon from 'identicon.js'
+import '../assets/bootstrap/css/bootstrap.min.css'
 
 const Header = ({ web3Handler, account}) => {
 
     return (
-      <nav className="navbar navbar-dark navbar-expand-sm sticky-top bg-success d-flex justify-content-between mb-5 shadow">
-          <a
-            className="ml-2 bg-white text-success navbar-brand col-sm-3 col-md-2 mr-0"
-            href=""
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Smart Swapper
-          </a>
-
-          <div className='p-4 d-flex text-white'>
+      <nav className="navbar navbar-dark navbar-expand-sm sticky-top bg-success d-flex justify-content-center mb-5 shadow">
+        <div className="row text-center">
+          <div className="col-md-12" >
+          <h3 className="text-white">Turvec Block </h3>
+          </div>
+          <div className="col-md-12" >
+          <h1 className="text-white">Welcome to Earth2Verse </h1>
+          </div>
+          <div className="col-md-12" >
+          <div className='d-flex text-white justify-content-center'>
           {
              account 
              ?
-             (<p className='bg-white text-success p-2'>{ account.slice(0 , 5) + '...' + account.slice(38 , 42) }</p>)
+             (<p className='text-white '>{ account.slice(0 , 13) + '...' }</p>)
              :
             (
-              <button onClick={web3Handler} className="btn btn-outline-success" >Connect Wallet</button>
+              <button onClick={web3Handler} className="btn btn-outline-primary" >Connect Wallet</button>
             ) 
           }
             
@@ -40,6 +40,8 @@ const Header = ({ web3Handler, account}) => {
              <div></div>
             }
           </div>
+          </div>
+        </div>
       </nav>
     );
 }
